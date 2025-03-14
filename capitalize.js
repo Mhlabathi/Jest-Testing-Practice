@@ -34,7 +34,7 @@ function getCiphered( alpha, key ) {
         timer = i % 26;
         ciphered += alpha[timer];
     }
-    
+
     return ciphered;
 }
 
@@ -77,7 +77,7 @@ function analyzeArray( arr ) {
         av += arr[i];
     }
 
-    av = av / max;
+    av = av / length;
 
     const obj = {
         avarage: av,
