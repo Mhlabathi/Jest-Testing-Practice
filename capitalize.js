@@ -34,7 +34,7 @@ function getCiphered( alpha, key ) {
         timer = i % 26;
         ciphered += alpha[timer];
     }
-    console.log(ciphered);
+    
     return ciphered;
 }
 
@@ -48,15 +48,11 @@ function caesarCipher( string, num ) {
         let index = alpha.indexOf(char.toLowerCase());
         //check punctuations
         if( !alpha.includes(char.toLowerCase()) ) {
-            console.log('Im in Punct');
             ciphered += char;
         } else {
             if( char === char.toUpperCase() ) {
-                console.log('Im in Upper');
-                console.log(cipherCode[index].toUpperCase());
                 ciphered += cipherCode[index].toUpperCase();
             } else {
-                console.log('Im in lower');
                 ciphered += cipherCode[index];
             }
         }
@@ -67,13 +63,39 @@ function caesarCipher( string, num ) {
 
 }
 
-console.log(caesarCipher( 'xyz', 3) );
-// console.log(getCiphered('abcdefghijklmnopqrstuvwxyz', 3));
-// capitalize('amazing');
-// reverseString('amazing');
-// calculator.add(4,2);
-// calculator.subtract(4,2);
-// calculator.multiply(4,2);
-// calculator.divide(4,2);
+function analyzeArray( arr ) {
+    let av = 0;
+    let min = arr[0];
+    let max = 0;
+    let length = arr.length;
 
-module.exports = { capitalize, reverseString, calculator, caesarCipher }
+    for ( let i = 0; i < length; i++ ) {
+        if( min > arr[i] )
+            min = arr[i];
+        if ( max < arr[i] )
+            max = arr[i];
+        av += arr[i];
+    }
+
+    av = av / max;
+
+    const obj = {
+        avarage: av,
+        min: min,
+        max: max,
+        length: length,
+    }
+    return obj;
+}
+
+console.log(analyzeArray([1,8,3,4,2,6]))
+console.log(caesarCipher( 'xyz', 3) );
+console.log(getCiphered('abcdefghijklmnopqrstuvwxyz', 3));
+capitalize('amazing');
+reverseString('amazing');
+calculator.add(4,2);
+calculator.subtract(4,2);
+calculator.multiply(4,2);
+calculator.divide(4,2);
+
+module.exports = { capitalize, reverseString, calculator, caesarCipher, analyzeArray }

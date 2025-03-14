@@ -1,4 +1,4 @@
-const { capitalize, reverseString, calculator, caesarCipher } = require('./capitalize.js');
+const { capitalize, reverseString, calculator, caesarCipher, analyzeArray } = require('./capitalize.js');
 // const  = require('./reverseString');
 
 //capitalize
@@ -43,4 +43,9 @@ test('ciphers string case preservation', () => {
 
 test('ciphers string punctuation retention', () => {
     expect(caesarCipher('Hello, World!', 3)).toMatch('Khoor, Zruog!');
+})
+
+//analyzeArray
+test('AnalyzeArray', () => {
+    expect({obj: analyzeArray([1,8,3,4,2,6])}).toMatchObject({obj: expect.any(Object)});
 })
